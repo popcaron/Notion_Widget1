@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>UTC Digital Watch</title>
+    <style>
+      #clock {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 0 10px #000;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 5em;
+        padding: 10px;
+      }
+
+      .digit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 2em;
+        width: 2em;
+        background: #333;
+        border-radius: 50%;
+        margin: 0.5em;
+        box-shadow: 0 0 10px #000;
+        transform: rotate(-90deg); /* rotate each digit 90 degrees */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <div class="digit" id="hour-ten"></div>
+      <div class="digit" id="hour-one"></div>
+      <div class="digit" id="minute-ten"></div>
+      <div class="digit" id="minute-one"></div>
+      <div class="digit" id="second-ten"></div>
+      <div class="digit" id="second-one"></div>
+    </div>
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hours = now.getUTCHours();
+        var minutes = now.getUTCMinutes();
+        var seconds = now.getUTCSeconds();
+
+        var hourTen = Math.floor(hours / 10);
+        var hourOne = hours % 10;
+        var minuteTen = Math.floor(minutes / 10);
+        var minuteOne = minutes % 10;
+        var secondTen = Math.floor(seconds / 10);
+        var secondOne = seconds % 10;
+
+        document.getElementById('hour-ten').innerHTML = hourTen;
+        document.getElementById('hour-one').innerHTML = hourOne;
+        document.getElementById('minute-ten').innerHTML = minuteTen;
+        document.getElementById('minute-one').innerHTML = minuteOne;
+        document.getElementById('second-ten').innerHTML = secondTen;
+        document.getElementById('second-one').innerHTML = secondOne;
+
+        setTimeout(updateClock, 1000);
+      }
+      updateClock();
+    </script>
+  </body>
+</html>
