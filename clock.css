@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="clock.css">
+  </head>
+  <body>
+    <div id="clock">
+      <div id="hour-ten">
+        <div class="number">
+          <div>0</div>
+          <div>9</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>8</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>7</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>6</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>5</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>4</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>3</div>
+          <div>2</div>
+          <div>1</div>
+          <div>0</div>
+        </div>
+      <div class="colon">:</div>
+      <div id="minute-ten">
+        <div class="number">
+          <div>0</div>
+          <div>5</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>4</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>3</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>2</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>1</div>
+        </div>
+        <div class="number">
+          <div>0</div>
+          <div>0</div>
+        </div>
+      </div>
+      <div id="minute-one">
+        <div class="number">
+          <div>5</div>
+          <div>9</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>8</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>7</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>6</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>5</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>4</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>3</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>2</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>1</div>
+        </div>
+        <div class="number">
+          <div>5</div>
+          <div>0</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
