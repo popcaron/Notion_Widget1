@@ -294,6 +294,33 @@
         color: #7FDBFF;
       }
         
+              <script>
+        function updateClock() {
+          const now = new Date();
+          const hours = now.getHours();
+          const minutes = now.getMinutes();
+          const seconds = now.getSeconds();
+
+          const hourTen = Math.floor(hours / 10);
+          const hourOne = hours % 10;
+          const minuteTen = Math.floor(minutes / 10);
+          const minuteOne = minutes % 10;
+          const secondTen = Math.floor(seconds / 10);
+          const secondOne = seconds % 10;
+
+          document.querySelector('#hour-ten .number').textContent = hourTen;
+          document.querySelector('#hour-one .number').textContent = hourOne;
+          document.querySelector('#minute-ten .number').textContent = minuteTen;
+          document.querySelector('#minute-one .number').textContent = minuteOne;
+          document.querySelector('#second-ten .number').textContent = secondTen;
+          document.querySelector('#second-one .number').textContent = secondOne;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+      </script>
+
+        
     </style>
   </body>
 </html>
