@@ -1,1 +1,30 @@
-Hello Riri.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>UTC Digital Watch</title>
+    <style>
+      #clock {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 3em;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 0 10px #000;
+        background-color: #000;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock"></div>
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var time = now.toUTCString().split(' ')[4];
+        document.getElementById('clock').innerHTML = time;
+        setTimeout(updateClock, 1000);
+      }
+      updateClock();
+    </script>
+  </body>
+</html>
