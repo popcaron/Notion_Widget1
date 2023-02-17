@@ -1,28 +1,44 @@
-import time
-import board
-import displayio
-import terminalio
-from adafruit_display_text import label
-from adafruit_matrixportal.matrix import Matrix
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Retro Digital Watch</title>
+	<style>
+		body {
+			background-color: #000;
+			color: #0F0;
+			font-family: monospace;
+			font-size: 2em;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock"></div>
+	<script>
+		function updateTime() {
+			var now = new Date();
+			var hours = now.getHours();
+			var minutes = now.getMinutes();
+			var seconds = now.getSeconds();
 
-matrix = Matrix(width=64, height=32, bit_depth=4)
+			if (hours < 10) {
+				hours = "0" + hours;
+			}
 
-display = matrix.display
+			if (minutes < 10) {
+				minutes = "0" + minutes;
+			}
 
-font = terminalio.FONT
+			if (seconds < 10) {
+				seconds = "0" + seconds;
+			}
 
-group = displayio.Group()
+			var timeString = hours + ":" + minutes + ":" + seconds;
+			document.getElementById("clock").innerHTML = timeString;
+		}
 
-clock_label = label.Label(font, text="00:00", color=0xFFFFFF, x=10, y=10)
-date_label = label.Label(font, text="01/01/2022", color=0xFFFFFF, x=10, y=20)
-
-group.append(clock_label)
-group.append(date_label)
-
-display.show(group)
-
-while True:
-    now = time.localtime()
-    clock_label.text = time.strftime("%H:%M", now)
-    date_label.text = time.strftime("%m/%d/%Y", now)
-    time.sleep(1)
+		setInterval(updateTime, 1000);
+	</script>
+</body>
+</html>
