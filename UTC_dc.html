@@ -2,71 +2,160 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>UTC Digital Watch</title>
+    <title>Retro Digital Watch</title>
     <style>
+      body {
+        background-color: #000;
+      }
       #clock {
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 1.2em;
+        font-size: 3em;
         font-weight: bold;
         color: #fff;
         text-shadow: 0 0 10px #000;
-        background: transparent;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        height: 5em;
-        padding: 10px;
+        text-align: center;
+        margin-top: 50px;
+        overflow: hidden;
+        position: relative;
       }
 
       .digit {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 2em;
-        width: 2em;
-        background: #333;
-        border-radius: 50%;
-        margin: 0.5em;
-        box-shadow: 0 0 10px #000;
-        transform: rotate(-90deg); /* rotate each digit 90 degrees */
+        display: inline-block;
+        width: 80px;
+        height: 110px;
+        margin-right: -20px;
+        padding-top: 20px;
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+        position: relative;
+        animation: roll-up 1s forwards;
+      }
+
+      .digit::before, .digit::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background-color: #000;
+        z-index: 1;
+      }
+
+      .digit::before {
+        top: 0;
+      }
+
+      .digit::after {
+        bottom: 0;
+      }
+
+      .number {
+        position: relative;
+        z-index: 2;
+      }
+
+      @keyframes roll-up {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-110px);
+        }
       }
     </style>
   </head>
   <body>
     <div id="clock">
-      <div class="digit" id="hour-ten"></div>
-      <div class="digit" id="hour-one"></div>
-      <div class="digit" id="minute-ten"></div>
-      <div class="digit" id="minute-one"></div>
-      <div class="digit" id="second-ten"></div>
-      <div class="digit" id="second-one"></div>
-    </div>
-    <script>
-      function updateClock() {
-        var now = new Date();
-        var hours = now.getUTCHours();
-        var minutes = now.getUTCMinutes();
-        var seconds = now.getUTCSeconds();
+      <div class="digit" id="hour-ten">
+        <div class="number">0</div>
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+      </div>
+      <div class="digit" id="hour-one">
+        <div class="number">0</div>
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+      </div>
+      <div class="digit" id="minute-ten">
+        <div class="number">0</div>
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+      </div>
+      <div class="digit" id="minute-one">
+        <div class="number">0</div>
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+        <div class="number">6</div>
+        <div class="number">7</div>
+        <div class="number">8</div>
+        <div class="number">9</div>
+      </div>
+      <div class="digit" id="second-ten">
+        <div class="number">0</div>
+        <div class="number">1</div>
+        <div class="number">2</div>
+        <div class="number">3</div>
+        <div class="number">4</div>
+        <div class="number">5</div>
+          </div>
+          <div class="digit" id="second-one">
+            <div class="number">0</div>
+            <div class="number">1</div>
+            <div class="number">2</div>
+            <div class="number">3</div>
+            <div class="number">4</div>
+            <div class="number">5</div>
+            <div class="number">6</div>
+            <div class="number">7</div>
+            <div class="number">8</div>
+            <div class="number">9</div>
+          </div>
+        </div>
+        <script>
+          function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            // Format time as two-digit numbers
+            const hourTen = Math.floor(hours / 10);
+            const hourOne = hours % 10;
+            const minuteTen = Math.floor(minutes / 10);
+            const minuteOne = minutes % 10;
+            const secondTen = Math.floor(seconds / 10);
+            const secondOne = seconds % 10;
+            // Update digit roll-up animations
+            document.getElementById('hour-ten').style.animationDelay = '-' + hourTen + 's';
+            document.getElementById('hour-one').style.animationDelay = '-' + hourOne + 's';
+            document.getElementById('minute-ten').style.animationDelay = '-' + minuteTen + 's';
+            document.getElementById('minute-one').style.animationDelay = '-' + minuteOne + 's';
+            document.getElementById('second-ten').style.animationDelay = '-' + secondTen + 's';
+            document.getElementById('second-one').style.animationDelay = '-' + secondOne + 's';
+          }
 
-        var hourTen = Math.floor(hours / 10);
-        var hourOne = hours % 10;
-        var minuteTen = Math.floor(minutes / 10);
-        var minuteOne = minutes % 10;
-        var secondTen = Math.floor(seconds / 10);
-        var secondOne = seconds % 10;
-
-        document.getElementById('hour-ten').innerHTML = hourTen;
-        document.getElementById('hour-one').innerHTML = hourOne;
-        document.getElementById('minute-ten').innerHTML = minuteTen;
-        document.getElementById('minute-one').innerHTML = minuteOne;
-        document.getElementById('second-ten').innerHTML = secondTen;
-        document.getElementById('second-one').innerHTML = secondOne;
-
-        setTimeout(updateClock, 1000);
-      }
-      updateClock();
-    </script>
+          // Update the clock every second
+          setInterval(updateClock, 1000);
+        </script>
   </body>
 </html>
