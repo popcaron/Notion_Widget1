@@ -1,76 +1,73 @@
-.container {
+#clock {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: black;
 }
 
 .flip-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.flip-digit {
-  width: 80px;
-  height: 100px;
-  margin: 0 10px;
-  position: relative;
   perspective: 1000px;
+  margin: 0 10px;
 }
 
-.flip-digit > div {
+.flipper {
+  position: relative;
+  width: 60px;
+  height: 90px;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
-  background-color: #222222;
-  color: white;
-  font-size: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
-}
-
-.flip-digit > div:before,
-.flip-digit > div:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  left: 0;
-  background-color: #333333;
-  border-radius: 5px;
-  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-.flip-digit > div:before {
-  top: 0;
-  transform-origin: bottom;
-  transform: rotateX(0deg);
-}
-
-.flip-digit > div:after {
-  bottom: 0;
-  transform-origin: top;
+.back {
   transform: rotateX(180deg);
 }
 
-.flip-digit.flip .front {
-  transform: rotateX(-180deg);
+.digit {
+  display: inline-block;
+  width: 100%;
+  height: 50%;
 }
 
-.flip-digit.flip .back {
+.digit-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
   transform: rotateX(0deg);
 }
 
-.flip-separator {
-  font-size: 80px;
-  color: white;
-  margin: 0 10px;
+.digit-top,
+.digit-bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  font-size: 40px;
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+.digit-top {
+  top: 0;
+}
+
+.digit-bottom {
+  bottom: 0;
+}
+
+.flip-container.flip .flipper {
+  transform: rotateX(180deg);
 }
