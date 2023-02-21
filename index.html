@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Retro Digital Watch</title>
-	<style>
-		body {
-			background-color: #000;
-			color: #0F0;
-			font-family: monospace;
-			font-size: 2em;
-			text-align: center;
-		}
-	</style>
-</head>
-<body>
-	<div id="clock"></div>
-	<script>
-		function updateTime() {
-			var now = new Date();
-			var hours = now.getHours();
-			var minutes = now.getMinutes();
-			var seconds = now.getSeconds();
-
-			if (hours < 10) {
-				hours = "0" + hours;
-			}
-
-			if (minutes < 10) {
-				minutes = "0" + minutes;
-			}
-
-			if (seconds < 10) {
-				seconds = "0" + seconds;
-			}
-
-			var timeString = hours + ":" + minutes + ":" + seconds;
-			document.getElementById("clock").innerHTML = timeString;
-		}
-
-		setInterval(updateTime, 1000);
-	</script>
-</body>
+  <head>
+    <title>Retro Flip Clock</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="flip-clock">
+      <div class="flip-clock__group hours">
+        <div class="flip-clock__card hours--1">
+          <div class="flip-clock__card__top"></div>
+          <div class="flip-clock__card__bottom"></div>
+          <div class="flip-clock__card__back"></div>
+          <div class="flip-clock__card__face"></div>
+        </div>
+        <div class="flip-clock__card hours--2">
+          <div class="flip-clock__card__top"></div>
+          <div class="flip-clock__card__bottom"></div>
+          <div class="flip-clock__card__back"></div>
+          <div class="flip-clock__card__face"></div>
+        </div>
+      </div>
+      <div class="flip-clock__group minutes">
+        <div class="flip-clock__card minutes--1">
+          <div class="flip-clock__card__top"></div>
+          <div class="flip-clock__card__bottom"></div>
+          <div class="flip-clock__card__back"></div>
+          <div class="flip-clock__card__face"></div>
+        </div>
+        <div class="flip-clock__card minutes--2">
+          <div class="flip-clock__card__top"></div>
+          <div class="flip-clock__card__bottom"></div>
+          <div class="flip-clock__card__back"></div>
+          <div class="flip-clock__card__face"></div>
+        </div>
+      </div>
+      <div class="flip-clock__group seconds">
+        <div class="flip-clock__card seconds--1">
+          <div class="flip-clock__card__top"></div>
+          <div class="flip-clock__card__bottom"></div>
+          <div class="flip-clock__card__back"></div>
+          <div class="flip-clock__card__face"></div>
+        </div>
+        <div class="flip-clock__card seconds--2">
+          <div class="flip-clock__card__top"></div>
+          <div class="flip-clock__card__bottom"></div>
+          <div class="flip-clock__card__back"></div>
+          <div class="flip-clock__card__face"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
