@@ -3,7 +3,79 @@
   <head>
     <title>Flip Clock</title>
     <style>
-      /* CSS 코드는 이곳에 작성합니다. */
+      #clock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .flip-container {
+        perspective: 1000px;
+        margin: 0 10px;
+      }
+
+      .flipper {
+        position: relative;
+        width: 60px;
+        height: 90px;
+        text-align: center;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+      }
+
+      .front,
+      .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      .back {
+        transform: rotateX(180deg);
+      }
+
+      .digit {
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+      }
+
+      .digit-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        transform: rotateX(0deg);
+      }
+
+      .digit-top,
+      .digit-bottom {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        text-align: center;
+        font-size: 40px;
+        font-family: Arial, sans-serif;
+        line-height: 1;
+      }
+
+      .digit-top {
+        top: 0;
+      }
+
+      .digit-bottom {
+        bottom: 0;
+      }
+
+      .flip-container.flip .flipper {
+        transform: rotateX(180deg);
+      }
     </style>
   </head>
   <body>
