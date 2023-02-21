@@ -1,54 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Retro Flip Clock</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Flip Clock</title>
+    <style>
+      /* CSS 코드는 이곳에 작성합니다. */
+    </style>
   </head>
   <body>
-    <div class="flip-clock">
-      <div class="flip-clock__group hours">
-        <div class="flip-clock__card hours--1">
-          <div class="flip-clock__card__top"></div>
-          <div class="flip-clock__card__bottom"></div>
-          <div class="flip-clock__card__back"></div>
-          <div class="flip-clock__card__face"></div>
-        </div>
-        <div class="flip-clock__card hours--2">
-          <div class="flip-clock__card__top"></div>
-          <div class="flip-clock__card__bottom"></div>
-          <div class="flip-clock__card__back"></div>
-          <div class="flip-clock__card__face"></div>
-        </div>
-      </div>
-      <div class="flip-clock__group minutes">
-        <div class="flip-clock__card minutes--1">
-          <div class="flip-clock__card__top"></div>
-          <div class="flip-clock__card__bottom"></div>
-          <div class="flip-clock__card__back"></div>
-          <div class="flip-clock__card__face"></div>
-        </div>
-        <div class="flip-clock__card minutes--2">
-          <div class="flip-clock__card__top"></div>
-          <div class="flip-clock__card__bottom"></div>
-          <div class="flip-clock__card__back"></div>
-          <div class="flip-clock__card__face"></div>
+    <div id="clock">
+      <div class="flip-container">
+        <div class="flipper">
+          <div class="front">
+            <div class="digit digit1">
+              <div class="digit-inner">
+                <span class="digit-top">0</span>
+                <span class="digit-bottom">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="back">
+            <div class="digit digit2">
+              <div class="digit-inner">
+                <span class="digit-top">0</span>
+                <span class="digit-bottom">0</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="flip-clock__group seconds">
-        <div class="flip-clock__card seconds--1">
-          <div class="flip-clock__card__top"></div>
-          <div class="flip-clock__card__bottom"></div>
-          <div class="flip-clock__card__back"></div>
-          <div class="flip-clock__card__face"></div>
+      <div class="flip-container">
+        <div class="flipper">
+          <div class="front">
+            <div class="digit digit3">
+              <div class="digit-inner">
+                <span class="digit-top">0</span>
+                <span class="digit-bottom">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="back">
+            <div class="digit digit4">
+              <div class="digit-inner">
+                <span class="digit-top">0</span>
+                <span class="digit-bottom">0</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flip-clock__card seconds--2">
-          <div class="flip-clock__card__top"></div>
-          <div class="flip-clock__card__bottom"></div>
-          <div class="flip-clock__card__back"></div>
-          <div class="flip-clock__card__face"></div>
+      </div>
+      <div class="flip-container">
+        <div class="flipper">
+          <div class="front">
+            <div class="digit digit5">
+              <div class="digit-inner">
+                <span class="digit-top">0</span>
+                <span class="digit-bottom">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="back">
+            <div class="digit digit6">
+              <div class="digit-inner">
+                <span class="digit-top">0</span>
+                <span class="digit-bottom">0</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="clock.js"></script>
   </body>
 </html>
